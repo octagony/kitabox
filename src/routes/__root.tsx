@@ -1,8 +1,11 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
-
-import appCss from '../styles.css?url'
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router';
+import mantineCoreStyles from '@mantine/core/styles.css?url';
+import {
+  ColorSchemeScript,
+  mantineHtmlProps,
+  MantineProvider,
+} from '@mantine/core';
+import { theme } from '@/utils/theme';
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,40 +18,32 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Kitabox',
       },
     ],
     links: [
       {
         rel: 'stylesheet',
-        href: appCss,
+        href: mantineCoreStyles,
       },
     ],
   }),
   shellComponent: RootDocument,
-})
+});
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument({ children }: { children: React.ReactNode; }) {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
       <head>
+        <ColorSchemeScript />
         <HeadContent />
       </head>
       <body>
-        {children}
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
+        <MantineProvider theme={theme}>
+          {children}
+        </MantineProvider>
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

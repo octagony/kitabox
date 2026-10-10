@@ -1,5 +1,5 @@
 {
-   "cssVariables.lookupFiles": [
+  "cssVariables.lookupFiles": [
     "**/*.css",
     "**/*.scss",
     "**/*.sass",
@@ -14,5 +14,5 @@
   },
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
-  },
+  }
 }
