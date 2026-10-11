@@ -6,6 +6,8 @@ import {
   MantineProvider,
 } from '@mantine/core';
 import { theme } from '@/utils/theme';
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/utils/helpers";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -39,10 +41,12 @@ function RootDocument({ children }: { children: React.ReactNode; }) {
         <HeadContent />
       </head>
       <body>
-        <MantineProvider theme={theme}>
-          {children}
-        </MantineProvider>
-        <Scripts />
+        <QueryClientProvider client={queryClient}>
+          <MantineProvider theme={theme}>
+            {children}
+          </MantineProvider>
+          <Scripts />
+        </QueryClientProvider>
       </body>
     </html>
   );
