@@ -8,6 +8,8 @@ import {
 import { theme } from '@/utils/theme';
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/utils/helpers";
+import { Header } from "#/components/ui/Header";
+import { ThemeToggle } from "#/components/ui/ThemeToggle";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -37,13 +39,15 @@ function RootDocument({ children }: { children: React.ReactNode; }) {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript defaultColorScheme="auto" />
         <HeadContent />
       </head>
       <body>
         <QueryClientProvider client={queryClient}>
           <MantineProvider theme={theme}>
+            <Header />
             {children}
+            <ThemeToggle />
           </MantineProvider>
           <Scripts />
         </QueryClientProvider>
