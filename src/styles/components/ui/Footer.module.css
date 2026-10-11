@@ -1,0 +1,46 @@
+html:is([data-mantine-color-scheme="dark"]) {
+	.footer {
+		box-shadow: 0px 8px 24px rgba(61, 61, 61, 0.946);
+	}
+
+	.logo {
+		filter: invert(1);
+	}
+}
+
+
+.footer {
+  border-top: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+	box-shadow: 0px -1px 24px rgba(149, 149, 149, 0.2);
+	position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+	justify-content: center;
+  padding-top: var(--mantine-spacing-xl);
+  padding-bottom: var(--mantine-spacing-xl);
+}
+
+.groupDevelopment {
+	display: grid;
+	place-content: center;
+	grid-template-columns: 24px auto;
+	gap: 8px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.groupDevelopment:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+.logo {
+	max-width: 24px;
+	max-height: 24px;
+}

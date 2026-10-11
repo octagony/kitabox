@@ -10,6 +10,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/utils/helpers";
 import { Header } from "#/components/ui/Header";
 import { ThemeToggle } from "#/components/ui/ThemeToggle";
+import { Footer } from "#/components/ui/Footer";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -47,6 +48,7 @@ function RootDocument({ children }: { children: React.ReactNode; }) {
           <MantineProvider theme={theme}>
             <Header />
             {children}
+            <Footer />
             <ThemeToggle />
           </MantineProvider>
           <Scripts />

@@ -77,7 +77,7 @@ function MailListPage() {
 
 					{!address ? (
 						<Paper withBorder p="xl" radius="md" ta="center">
-							<Text c="dimmed">Creating your temporary mailbox...</Text>
+							<Text>Creating your temporary mailbox...</Text>
 						</Paper>
 					) : messages && messages.length > 0 ? (
 						<Stack gap="xs">
@@ -87,7 +87,7 @@ function MailListPage() {
 						</Stack>
 					) : (
 						<Paper withBorder p="xl" radius="md" ta="center">
-							<Text c="dimmed">Waiting for new messages...</Text>
+							<Text>Waiting for new messages...</Text>
 						</Paper>
 					)}
 				</Stack>
