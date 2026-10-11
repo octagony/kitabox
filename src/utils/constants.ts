@@ -12,3 +12,4 @@ export const APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY = 'temp_mail_account'
 export const APP_QUERY_DOMAIN_KEY = 'domains'
 export const APP_QUERY_MESSAGES_KEY = 'messages'
 export const APP_QUERY_MESSAGE_KEY = 'message'
+export const APP_ACCOUNT_LIFETIME_MS = 5 * 60 * 1000;

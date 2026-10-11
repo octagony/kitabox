@@ -63,10 +63,10 @@ function MessageDetailRoute() {
           <Stack gap={4}>
             <Title order={3}>{message.subject || '(Без темы)'}</Title>
             <Text size="sm" c="dimmed">
-              От: <Text component="span" c="dark.8" fw={500}>{message.from.name || message.from.address}</Text>
+              From: <Text component="span" c="dark.8" fw={500}>{message.from.name || message.from.address}</Text>
             </Text>
             <Text size="sm" c="dimmed">
-              Кому: <Text component="span" c="dark.8">{message.to.map(t => t.address).join(', ')}</Text>
+              To: <Text component="span" c="dark.8">{message.to.map(t => t.address).join(', ')}</Text>
             </Text>
             <Text size="xs" c="dimmed">
               {new Date(message.createdAt).toLocaleString('ru-RU')}
