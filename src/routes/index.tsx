@@ -30,7 +30,7 @@ function MailListPage() {
 
 	if (!isHydrated) {
 		return (
-			<Container size="xl">
+			<Container size="xl" pt={90}>
 				<Stack gap="xl">
 					<Paper withBorder p="md" radius="md" shadow="sm">
 						<Group justify="space-between">
@@ -38,16 +38,13 @@ function MailListPage() {
 							<Loader size="sm" />
 						</Group>
 					</Paper>
-					<Paper withBorder p="xl" radius="md" ta="center">
-						<Text c="dimmed">Waiting for new messages...</Text>
-					</Paper>
 				</Stack>
 			</Container>
 		);
 	}
 
 	return (
-		<Container size="xl">
+		<Container size="xl" pt={96} pb={76}>
 			<Stack gap="xl">
 				<MailInfo
 					address={address}
@@ -87,7 +84,7 @@ function MailListPage() {
 						</Stack>
 					) : (
 						<Paper withBorder p="xl" radius="md" ta="center">
-							<Text>Waiting for new messages...</Text>
+							<Text>Waiting for new messages... </Text>
 						</Paper>
 					)}
 				</Stack>

@@ -18,6 +18,11 @@ html:is([data-mantine-color-scheme="dark"]) {
 			cursor: pointer;
 			transition: all 0.4s ease-in-out;
 	}
+
+	.mailBoxButton {
+			background-color: #151F28;
+			color: #E4F1FC;
+		}
 }
 
 .mailbox {
@@ -51,6 +56,11 @@ html:is([data-mantine-color-scheme="dark"]) {
 		@media(min-width: em(640px)) {
 			flex-direction: row;
 			justify-content: space-between;
+		}
+
+		.mailBoxButton {
+			background-color: #B3DDF2;
+			color: #2c3e50;
 		}
 }
 

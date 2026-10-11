@@ -1,6 +1,6 @@
 .toggler {
-	position: absolute;
-	bottom: 2.5%;
+	position: fixed;
+	bottom: 8.5%;
 	right: 2.5%;
 	z-index: 5;
 }

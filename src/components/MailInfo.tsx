@@ -25,10 +25,10 @@ export function MailInfo({ address, onCreateNew, isAccountLoading, isDomainsLoad
 
 				<Group gap="xs">
 					<Button
+						className={classes.mailBoxButton}
 						leftSection={<RefreshCw size={16} />}
 						onClick={onCreateNew}
 						loading={isAccountLoading || isDomainsLoading}
-						variant="filled"
 					>
 						New address
 					</Button>

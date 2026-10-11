@@ -4,11 +4,11 @@ import classes from '@/styles/components/ui/Footer.module.css';
 export function Footer() {
 	return (
 		<div className={classes.footer}>
-			<Container className={classes.inner}>
+			<Container p={0} className={classes.inner}>
 				<Group gap={0} justify="flex-end" wrap="nowrap">
-					<Text size="lg">
+					<Text size="md" >
 						<a className={classes.groupDevelopment} href="https://github.com/octagony" target="_blank">
-							<Image maw={28} mah={28} className={classes.logo} src="./publlic/githubLogo.svg" />
+							<Image maw={22} mah={22} className={classes.logo} src="./publlic/githubLogo.svg" />
 							Developed by Octagony
 						</a>
 					</Text>
