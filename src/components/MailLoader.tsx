@@ -1,6 +1,6 @@
 import { Loader, Text } from "@mantine/core";
 
-export function MessageLoader() {
+export function MailLoader() {
 	return (
 		<>
 			<Loader size="lg" />

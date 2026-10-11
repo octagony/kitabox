@@ -10,7 +10,7 @@ import {
 } from '@mantine/core';
 import { useMessage } from '@/hooks/useMailRequest';
 import { CircleChevronLeft } from "lucide-react";
-import { MessageLoader } from "@/components/MessageLoader";
+import { MailLoader } from "#/components/MailLoader";
 
 export const Route = createFileRoute('/message/$messageId')({
   component: MessageDetailRoute,
@@ -25,7 +25,7 @@ function MessageDetailRoute() {
   if (isLoading) {
     return (
       <Container size="md" py="xl" ta="center">
-        <MessageLoader />
+        <MailLoader />
       </Container>
     );
   }
@@ -48,7 +48,7 @@ function MessageDetailRoute() {
   }
 
   return (
-    <Container size="xl" py="xl">
+    <Container size="xl" py="xl" pt={0}>
       <Button
         variant="subtle"
         onClick={() => navigate({ to: '/' })}
@@ -63,10 +63,13 @@ function MessageDetailRoute() {
           <Stack gap={4}>
             <Title order={3}>{message.subject || '(Без темы)'}</Title>
             <Text size="sm" c="dimmed">
-              From: <Text component="span" c="dark.8" fw={500}>{message.from.name || message.from.address}</Text>
+              From: <Text component="span" fw={500}>{message.from.name || message.from.address}</Text>
             </Text>
             <Text size="sm" c="dimmed">
-              To: <Text component="span" c="dark.8">{message.to.map(t => t.address).join(', ')}</Text>
+              To:
+              <Text component="span">
+                {message.to.map(t => t.address).join(', ')}
+              </Text>
             </Text>
             <Text size="xs" c="dimmed">
               {new Date(message.createdAt).toLocaleString('ru-RU')}

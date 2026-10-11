@@ -1,0 +1,9 @@
+.mailCard {
+  transition: transform 0.4s;
+	backface-visibility: hidden;
+}
+
+.mailCard:hover {
+  transform: scale(1.01) ;
+	backface-visibility: hidden;
+}

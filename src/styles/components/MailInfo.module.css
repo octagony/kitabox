@@ -1,9 +1,64 @@
+html:is([data-mantine-color-scheme="dark"]) {
+	.mailboxText:hover {
+			background: linear-gradient(
+				to right,
+				#f5f5ff 10%,
+				#7070a3 25%,
+				#f5f5ff 50%,
+				#7070a3 75%,
+				#f5f5ff 80%
+			);
+
+				-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-fill-color: transparent;
+			background-size: 500% auto;
+			animation: textShine 5s ease-in-out infinite alternate;
+			cursor: pointer;
+			transition: all 0.4s ease-in-out;
+	}
+}
+
 .mailbox {
     display: flex;
 		flex-direction: column;
+
+		.mailbox {
+			transition: all 0.4s ease-in-out;
+		}
+
+		.mailboxText:hover {
+			background: linear-gradient(
+					to right,
+					#2c3e50 10%,
+					#6bb8e0 25%,
+					#6bb8e0 50%,
+					#6bb8e0 75%,
+					#2c3e50 80%
+			);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-fill-color: transparent;
+			background-size: 500% auto;
+			animation: textShine 5s ease-in-out infinite alternate;
+			cursor: pointer;
+			transition: all 0.4s ease-in-out;
+		}
+
 
 		@media(min-width: em(640px)) {
 			flex-direction: row;
 			justify-content: space-between;
 		}
+}
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }

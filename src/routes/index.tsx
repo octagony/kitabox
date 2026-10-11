@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useAutoCreateAccount } from '#/hooks/useAutoCreateAccount';
 import { useMessages } from '#/hooks/useMailRequest';
-import { accountStore, accountActions } from '#/store/accountStore';
-import { APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY } from '#/utils/constants';
+import { accountStore } from '#/store/accountStore';
 import { Container, Group, Paper, Stack, Text, Title, Loader } from '@mantine/core';
 import { createFileRoute } from '@tanstack/react-router';
-import { MessageCard } from '#/components/MessageCard';
+import { MailCard } from '#/components/MailCard';
 import { MailInfo } from '#/components/MailInfo';
 import { checkLocalStorageAccount } from "#/utils/helpers";
+import { TypingTitle } from "#/components/ui/TypingTitle";
 
 export const Route = createFileRoute('/')({ component: MailListPage });
 
@@ -64,7 +64,7 @@ function MailListPage() {
 					) : messages && messages.length > 0 ? (
 						<Stack gap="xs">
 							{messages.map((msg) => (
-								<MessageCard key={msg.id} message={msg} />
+								<MailCard key={msg.id} message={msg} />
 							))}
 						</Stack>
 					) : (
