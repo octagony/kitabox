@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { useAutoCreateAccount } from '#/hooks/useAutoCreateAccount';
 import { useMessages } from '#/hooks/useMailRequest';
 import { accountStore } from '#/store/accountStore';
-import { Container, Group, Paper, Stack, Text, Title, Loader } from '@mantine/core';
+import { Container, Group, Paper, Stack, Text, Title, Loader, Tooltip, ActionIcon } from '@mantine/core';
 import { createFileRoute } from '@tanstack/react-router';
 import { MailCard } from '#/components/MailCard';
 import { MailInfo } from '#/components/MailInfo';
 import { checkLocalStorageAccount } from "#/utils/helpers";
 import { TypingTitle } from "#/components/ui/TypingTitle";
+import { RefreshCcwDotIcon } from "lucide-react";
 
 export const Route = createFileRoute('/')({ component: MailListPage });
 
@@ -16,12 +17,16 @@ function MailListPage() {
 
 	const { address } = accountStore.state;
 	const { createNewAccount, isCreating, isDomainsLoading } = useAutoCreateAccount(isHydrated);
-	const { data: messages, isLoading: isMessagesLoading } = useMessages();
+	const { data: messages, isLoading: isMessagesLoading, refetch: refetchMessages, isRefetching } = useMessages();
 
 	useEffect(() => {
 		setIsHydrated(true);
 		checkLocalStorageAccount(createNewAccount);
 	}, []);
+
+	const handleRefetchMessages = () => {
+		refetchMessages();
+	};
 
 	if (!isHydrated) {
 		return (
@@ -54,6 +59,19 @@ function MailListPage() {
 				<Stack gap="md">
 					<Group justify="space-between">
 						<Title order={3}>Incoming</Title>
+						<Tooltip label="Refresh messages" withArrow>
+							<ActionIcon
+								variant="light"
+								size="lg"
+								onClick={handleRefetchMessages}
+								loading={isRefetching}
+								disabled={!address}
+								aria-label="Refresh messages"
+							>
+								<RefreshCcwDotIcon size={18} />
+							</ActionIcon>
+						</Tooltip>
+
 						{isMessagesLoading && <Loader size={20} />}
 					</Group>
 
@@ -74,6 +92,6 @@ function MailListPage() {
 					)}
 				</Stack>
 			</Stack>
-		</Container>
+		</Container >
 	);
 }
