@@ -9,9 +9,10 @@
 
   "mail_card_no_theme": "No theme",
   "mail_card_delete_message":"Delete message",
+
   "mail_info_temporary_address_subtitle": "Your temporary address:",
   "mail_info_new_address": "New address",
-
+  
   "mail_loader_loading_message": "Loading message",
 
   "use_delete_message_token_error": "No token available",
