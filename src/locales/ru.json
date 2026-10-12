@@ -1,0 +1,37 @@
+{
+  "footer_developed_by": "Разработан",
+
+  "typing_title_keep": "Оставь", 
+  "typing_title_spam": "спам", 
+  "typing_title_junk": "хлам", 
+  "typing_title_trash": "мусор",
+  "typing_title_behind": "позади",
+
+  "mail_card_no_theme": "Без темы",
+  "mail_card_delete_message":"Удалить письмо",
+  "mail_info_temporary_address_subtitle": "Ваш временный ящик:",
+  "mail_info_new_address": "Новый почтовый адрес",
+
+  "mail_loader_loading_message": "Загружаем сообщение",
+
+  "use_delete_message_token_error": "Токен недоступен",
+  "use_delete_message_failed_title": "Ошибка при удалении письма",
+  "use_delete_message_failed_try_again": "Пожалуйста, попробуйте ещё раз",
+  "use_delete_message_success_title": "Сообщение удалено",
+
+  "root_page_loading_message": "Загружаем ваш ящик",
+  "root_page_incoming": "Входящие",
+  "root_page_refresh_messages": "Обновить ящик",
+  "root_page_creating_mailbox": "Cоздаём временный ящик",
+  "root_page_waiting_messages": "Ждём новых сообщений",
+
+  "message_page_back_to_list": "Вернуться к списку",
+  "message_page_couldnt_load_message": "Сообщение не загружено, вернитесь к списку",
+  "message_page_no_subject": "(Без темы)",
+  "message_page_from": "От",
+  "message_page_to": "Кому",
+  "message_page_empty_mail": "(Пусто)",
+
+  "click_to_copy_text": "Нажмите чтобы скопировать",
+  "copied_text": "Скопировано"
+}

@@ -3,15 +3,17 @@ import { deleteMessageRequest } from '#/requests/mail.requests'
 import { accountStore } from '#/store/accountStore'
 import { APP_QUERY_MESSAGES_KEY } from '#/utils/constants'
 import { notifications } from '@mantine/notifications'
+import { useTranslation } from "react-i18next";
 
 export const useDeleteMessage = () => {
   const queryClient = useQueryClient()
+  const { t } = useTranslation();
 
   return useMutation({
     mutationFn: async (messageId: string) => {
       const token = accountStore.state.token
       if (!token) {
-				throw new Error('No token available')
+				throw new Error(t('use_delete_message_token_error'))
 			}
       
       await deleteMessageRequest({ data: { token, id: messageId } });
@@ -39,8 +41,8 @@ export const useDeleteMessage = () => {
       }
       
       notifications.show({
-        title: 'Failed to delete message',
-        message: err.message || 'Please try again',
+        title: t('use_delete_message_failed_title'),
+        message: err.message || t('use_delete_message_failed_try_again'),
         color: 'red',
         autoClose: 5000,
       })
@@ -48,8 +50,7 @@ export const useDeleteMessage = () => {
 
     onSuccess: () => {
       notifications.show({
-        title: 'Message deleted',
-        message: 'The message has been removed',
+        message: t('use_delete_message_success_title'),
         color: 'green',
         autoClose: 3000,
       })

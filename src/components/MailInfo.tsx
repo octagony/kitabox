@@ -3,15 +3,18 @@ import { Button, CopyButton, Group, Paper, Stack, Text, Tooltip } from "@mantine
 import { RefreshCw } from "lucide-react";
 import classes from "@/styles/components/MailInfo.module.css";
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from "react-i18next";
 
 
 export function MailInfo({ address, onCreateNew, isAccountLoading, isDomainsLoading }: IMailInfoComponentProps) {
+	const { t } = useTranslation();
+
 	return (
 		<Paper withBorder p="md" radius="md" shadow="sm">
 			<Group className={classes.mailbox}>
 				<Stack gap={4}>
 					<Text size="sm">
-						Your temporary address:
+						{t('mail_info_temporary_address_subtitle')}
 					</Text>
 					<AnimatePresence mode="wait">
 						<motion.div
@@ -24,8 +27,19 @@ export function MailInfo({ address, onCreateNew, isAccountLoading, isDomainsLoad
 						>
 							<CopyButton value={address} timeout={2000}>
 								{({ copied, copy }) => (
-									<Tooltip label={copied ? 'Copied' : 'Click to copy'} withArrow position="bottom">
-										<Text size="xl" fw={700} style={{ wordBreak: 'break-all' }} className={classes.mailboxText} onClick={copy}>
+									<Tooltip
+										label={copied
+											? t('copied_text')
+											: t('click_to_copy_text')}
+										withArrow
+										position="bottom"
+									>
+										<Text
+											size="xl"
+											fw={700}
+											style={{ wordBreak: 'break-all' }} className={classes.mailboxText}
+											onClick={copy}
+										>
 											{address}
 										</Text>
 									</Tooltip>
@@ -42,7 +56,7 @@ export function MailInfo({ address, onCreateNew, isAccountLoading, isDomainsLoad
 						onClick={onCreateNew}
 						loading={isAccountLoading || isDomainsLoading}
 					>
-						New address
+						{t('mail_info_new_address')}
 					</Button>
 				</Group>
 			</Group>

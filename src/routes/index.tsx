@@ -9,6 +9,7 @@ import { MailInfo } from '#/components/MailInfo';
 import { checkLocalStorageAccount } from "#/utils/helpers";
 import { RefreshCcwDotIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 export const Route = createFileRoute('/')({ component: MailListPage });
 
@@ -18,6 +19,7 @@ function MailListPage() {
 	const { address } = accountStore.state;
 	const { createNewAccount, isCreating, isDomainsLoading } = useAutoCreateAccount(isHydrated);
 	const { data: messages, isLoading: isMessagesLoading, refetch: refetchMessages, isRefetching } = useMessages();
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		setIsHydrated(true);
@@ -34,7 +36,9 @@ function MailListPage() {
 				<Stack gap="xl">
 					<Paper withBorder p="md" radius="md" shadow="sm">
 						<Group justify="space-between">
-							<Text c="dimmed">Loading mailbox...</Text>
+							<Text c="dimmed">
+								{t('root_page_loading_message')}...
+							</Text>
 							<Loader size="sm" />
 						</Group>
 					</Paper>
@@ -55,15 +59,19 @@ function MailListPage() {
 
 				<Stack gap="md">
 					<Group justify="space-between">
-						<Title order={3}>Incoming</Title>
-						<Tooltip label="Refresh messages" withArrow>
+						<Title order={3}>
+							{t('root_page_incoming')}
+						</Title>
+						<Tooltip
+							label={t('root_page_refresh_messages')} withArrow
+						>
 							<ActionIcon
 								variant="light"
 								size="lg"
 								onClick={handleRefetchMessages}
 								loading={isRefetching}
 								disabled={!address}
-								aria-label="Refresh messages"
+								aria-label={t('root_page_refresh_messages')}
 							>
 								<RefreshCcwDotIcon size={18} />
 							</ActionIcon>
@@ -73,8 +81,15 @@ function MailListPage() {
 					</Group>
 
 					{!address ? (
-						<Paper withBorder p="xl" radius="md" ta="center">
-							<Text>Creating your temporary mailbox...</Text>
+						<Paper
+							withBorder
+							p="xl"
+							radius="md"
+							ta="center"
+						>
+							<Text>
+								{t('root_page_creating_mailbox')}...
+							</Text>
 						</Paper>
 					) : messages && messages.length > 0 ? (
 						<AnimatePresence mode="popLayout">
@@ -90,7 +105,11 @@ function MailListPage() {
 								}}
 								initial="hidden"
 								animate="show"
-								style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									gap: '8px'
+								}}
 							>
 								{messages.map((msg) => (
 									<MailCard key={msg.id} message={msg} />
@@ -98,8 +117,14 @@ function MailListPage() {
 							</motion.div>
 						</AnimatePresence>
 					) : (
-						<Paper withBorder p="xl" radius="md" ta="center">
-							<Text>Waiting for new messages... </Text>
+						<Paper
+							withBorder p="xl"
+							radius="md"
+							ta="center"
+						>
+							<Text>
+								{t('root_page_waiting_messages')}...
+							</Text>
 						</Paper>
 					)}
 				</Stack>

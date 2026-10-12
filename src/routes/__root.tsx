@@ -1,3 +1,4 @@
+import '@/i18n';
 import { HeadContent, Scripts, createRootRoute, useLocation } from '@tanstack/react-router';
 import mantineCoreStyles from '@mantine/core/styles.css?url';
 import {

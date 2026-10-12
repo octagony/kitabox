@@ -1,0 +1,37 @@
+{
+  "footer_developed_by": "Developed by",
+
+  "typing_title_keep": "Keep", 
+  "typing_title_spam": "spam", 
+  "typing_title_junk": "junk", 
+  "typing_title_trash": "trash",
+  "typing_title_behind": "behind",
+
+  "mail_card_no_theme": "No theme",
+  "mail_card_delete_message":"Delete message",
+  "mail_info_temporary_address_subtitle": "Your temporary address:",
+  "mail_info_new_address": "New address",
+
+  "mail_loader_loading_message": "Loading message",
+
+  "use_delete_message_token_error": "No token available",
+  "use_delete_message_failed_title": "Failed to delete message",
+  "use_delete_message_failed_try_again": "Please try again",
+  "use_delete_message_success_title": "Message deleted",
+
+  "root_page_loading_message": "Loading mailbox",
+  "root_page_incoming": "Incoming",
+  "root_page_refresh_messages": "Refresh messages",
+  "root_page_creating_mailbox": "Creating your temporary mailbox",
+  "root_page_waiting_messages": "Waiting for new messages",
+
+  "message_page_back_to_list": "Back to list",
+  "message_page_couldnt_load_message": "Couldn't load message",
+  "message_page_no_subject": "(No subject)",
+  "message_page_from": "From",
+  "message_page_to": "To",
+  "message_page_empty_mail": "(Empty mail)",
+
+  "click_to_copy_text": "Click to copy",
+  "copied_text": "Сopied"
+}
