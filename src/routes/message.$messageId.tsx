@@ -48,7 +48,7 @@ function MessageDetailRoute() {
   }
 
   return (
-    <Container size="xl" py="xl" pt={0}>
+    <Container size="xl" py="xl" pt={96} pb={76}>
       <Button
         variant="subtle"
         onClick={() => navigate({ to: '/' })}
