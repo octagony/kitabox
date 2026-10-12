@@ -11,6 +11,8 @@
   "mail_card_delete_message":"Удалить письмо",
   "mail_info_temporary_address_subtitle": "Ваш временный ящик:",
   "mail_info_new_address": "Новый почтовый адрес",
+  "mail_info_expires_in": "Истекает через",
+
 
   "mail_loader_loading_message": "Загружаем сообщение",
 

@@ -1,12 +1,10 @@
-import { useState, useEffect } from 'react';
 import { useAutoCreateAccount } from '@/hooks/useAutoCreateAccount';
 import { useMessages } from '@/hooks/useMailRequest';
 import { accountStore } from '@/store/accountStore';
-import { Container, Group, Paper, Stack, Text, Title, Loader, Tooltip, ActionIcon } from '@mantine/core';
-import { createFileRoute } from '@tanstack/react-router';
+import { Container, Group, Paper, Stack, Text, Title, Tooltip, ActionIcon } from '@mantine/core';
+import { createFileRoute, useHydrated } from '@tanstack/react-router';
 import { MailCard } from '@/components/MailCard';
 import { MailInfo } from '@/components/MailInfo';
-import { checkLocalStorageAccount } from "@/utils/helpers";
 import { RefreshCcwDotIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
@@ -14,37 +12,18 @@ import { useTranslation } from "react-i18next";
 export const Route = createFileRoute('/')({ component: MailListPage });
 
 function MailListPage() {
-	const [isHydrated, setIsHydrated] = useState(false);
-
+	const isHydrated = useHydrated();
 	const { address } = accountStore.state;
-	const { createNewAccount, isCreating, isDomainsLoading } = useAutoCreateAccount(isHydrated);
-	const { data: messages, isLoading: isMessagesLoading, refetch: refetchMessages, isRefetching } = useMessages();
+	const { createNewAccount, isCreating, isDomainsLoading, formattedTime, isActive } = useAutoCreateAccount(isHydrated);
+	const { data: messages, refetch: refetchMessages, isRefetching } = useMessages();
 	const { t } = useTranslation();
-
-	useEffect(() => {
-		setIsHydrated(true);
-		checkLocalStorageAccount(createNewAccount);
-	}, []);
 
 	const handleRefetchMessages = () => {
 		refetchMessages();
 	};
 
 	if (!isHydrated) {
-		return (
-			<Container size="xl" pt={90}>
-				<Stack gap="xl">
-					<Paper withBorder p="md" radius="md" shadow="sm">
-						<Group justify="space-between">
-							<Text c="dimmed">
-								{t('root_page_loading_message')}...
-							</Text>
-							<Loader size="sm" />
-						</Group>
-					</Paper>
-				</Stack>
-			</Container>
-		);
+		return <></>;
 	}
 
 	return (
@@ -55,6 +34,8 @@ function MailListPage() {
 					isAccountLoading={isCreating || isDomainsLoading}
 					isDomainsLoading={isDomainsLoading}
 					onCreateNew={createNewAccount}
+					formattedTime={formattedTime}
+					isTimerActive={isActive}
 				/>
 
 				<Stack gap="md">
@@ -76,8 +57,6 @@ function MailListPage() {
 								<RefreshCcwDotIcon size={18} />
 							</ActionIcon>
 						</Tooltip>
-
-						{isMessagesLoading && <Loader size={20} />}
 					</Group>
 
 					{!address ? (

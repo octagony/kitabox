@@ -15,6 +15,8 @@ import { Footer } from "@/components/ui/Footer";
 import { motion } from 'motion/react';
 import { DisplayNotification } from "@/components/ui/DisplayNotification";
 import { seo } from "@/utils/seo";
+import { useEffect } from "react";
+import { accountActions } from "@/store/accountStore";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -70,6 +72,10 @@ export const Route = createRootRoute({
 function RootDocument({ children }: { children: React.ReactNode; }) {
   const location = useLocation();
 
+  useEffect(() => {
+    accountActions.hydrate();
+  }, []);
+
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
@@ -86,7 +92,11 @@ function RootDocument({ children }: { children: React.ReactNode; }) {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              transition=
+              {{
+                duration: 0.2,
+                ease: 'easeInOut'
+              }}
               style={{
                 minHeight: '100vh',
                 overflow: 'hidden',

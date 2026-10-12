@@ -89,4 +89,51 @@ describe('MailInfo Component', () => {
 		const button = screen.getByText(mockLanguage.mail_info_new_address).closest('button');
 		expect(button).toHaveAttribute('data-loading');
 	});
+
+	it('should display timer badge when address exists and timer is active', () => {
+		renderWithProviders(
+			<MailInfo
+				address="test@example.com"
+				isAccountLoading={false}
+				isDomainsLoading={false}
+				onCreateNew={mockOnCreateNew}
+				formattedTime="04:30"
+				isTimerActive={true}
+			/>
+		);
+
+		expect(screen.getByText(/04:30/)).toBeInTheDocument();
+	});
+
+	it('should not display timer badge when timer is not active', () => {
+		renderWithProviders(
+			<MailInfo
+				address="test@example.com"
+				isAccountLoading={false}
+				isDomainsLoading={false}
+				onCreateNew={mockOnCreateNew}
+				formattedTime="04:30"
+				isTimerActive={false}
+			/>
+		);
+
+		expect(screen.queryByText('04:30')).not.toBeInTheDocument();
+	});
+
+	it('should display timer badge with blue color when time is more than 1 minute', () => {
+		renderWithProviders(
+			<MailInfo
+				address="test@example.com"
+				isAccountLoading={false}
+				isDomainsLoading={false}
+				onCreateNew={mockOnCreateNew}
+				formattedTime="00:30"
+				isTimerActive={true}
+			/>
+		);
+
+		const timerBadge = screen.getByText(/00:30/);
+		expect(timerBadge).toBeInTheDocument();
+		expect(timerBadge.closest('[data-variant="light"]')).toBeInTheDocument();
+	});
 });

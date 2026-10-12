@@ -1,18 +1,18 @@
 import type { IMailInfoComponentProps } from "@/interfaces/IComponent.interface";
-import { Button, CopyButton, Group, Paper, Stack, Text, Tooltip } from "@mantine/core";
+import { Badge, Button, CopyButton, Group, Paper, Stack, Text, Tooltip } from "@mantine/core";
 import { RefreshCw } from "lucide-react";
 import classes from "@/styles/components/MailInfo.module.css";
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from "react-i18next";
 
 
-export function MailInfo({ address, onCreateNew, isAccountLoading, isDomainsLoading }: IMailInfoComponentProps) {
+export function MailInfo({ address, onCreateNew, isAccountLoading, isDomainsLoading, formattedTime, isTimerActive }: IMailInfoComponentProps) {
 	const { t } = useTranslation();
 
 	return (
 		<Paper withBorder p="md" radius="md" shadow="sm">
 			<Group className={classes.mailbox}>
-				<Stack gap={4}>
+				<Stack gap={4} className={classes.mailboxStack}>
 					<Text size="sm">
 						{t('mail_info_temporary_address_subtitle')}
 					</Text>
@@ -45,6 +45,17 @@ export function MailInfo({ address, onCreateNew, isAccountLoading, isDomainsLoad
 									</Tooltip>
 								)}
 							</CopyButton>
+							{address && formattedTime && isTimerActive && (
+								<Badge
+									variant="light"
+									color={formattedTime <= '01:00' ? 'red' : 'blue'}
+									size="lg"
+									mt={8}
+									className={classes.mailBoxBadge}
+								>
+									{t('mail_info_expires_in')}:{formattedTime}
+								</Badge>
+							)}
 						</motion.div>
 					</AnimatePresence>
 				</Stack>

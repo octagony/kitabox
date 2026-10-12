@@ -12,6 +12,7 @@
 
   "mail_info_temporary_address_subtitle": "Your temporary address:",
   "mail_info_new_address": "New address",
+  "mail_info_expires_in": "Expires in",
   
   "mail_loader_loading_message": "Loading message",
 

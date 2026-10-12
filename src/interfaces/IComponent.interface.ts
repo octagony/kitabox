@@ -3,4 +3,6 @@ export interface IMailInfoComponentProps {
 	 onCreateNew: () => void, 
 	 isAccountLoading: boolean, 
 	 isDomainsLoading: boolean, 
+   formattedTime?: string
+   isTimerActive?: boolean
 }

@@ -2,6 +2,7 @@ import { useEffect, useCallback, useRef } from 'react'
 import { accountStore } from '@/store/accountStore'
 import { useDomain, useCreateAccount } from '@/hooks/useMailRequest'
 import { APP_ACCOUNT_LIFETIME_MS } from "@/utils/constants";
+import { useAccountTimer } from "./useAccountTimer";
 
 export const useAutoCreateAccount = (isHydrated: boolean) => {
   const { data: domains, isLoading: isDomainsLoading } = useDomain()
@@ -14,6 +15,8 @@ export const useAutoCreateAccount = (isHydrated: boolean) => {
       createAccount({ domain: randomDomain })
     }
   }, [domains, createAccount])
+
+  const { formattedTime, isActive } = useAccountTimer(createNewAccount)
 
   useEffect(() => {
     if (!isHydrated || isDomainsLoading || isCreating || hasCheckedOnMount.current) {
@@ -40,5 +43,11 @@ export const useAutoCreateAccount = (isHydrated: boolean) => {
     return () => clearInterval(interval)
   }, [createNewAccount])
 
-  return { isCreating, isDomainsLoading, createNewAccount }
+  return { 
+    isCreating, 
+    isDomainsLoading, 
+    createNewAccount,
+    formattedTime,
+    isActive, 
+  }
 }

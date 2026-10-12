@@ -10,7 +10,7 @@ export function TypingTitle() {
 		<Group className={classes.typingTitle} justify="center" gap={4}>
 			<Text size="lg">{t('typing_title_keep')}</Text>
 			<Text size="lg" key={i18n.language}>
-				<ReactRotatingText clasName="" items={[t('typing_title_spam'), t('typing_title_junk'), t('typing_title_trash')]} />
+				<ReactRotatingText items={[t('typing_title_spam'), t('typing_title_junk'), t('typing_title_trash')]} />
 			</Text>
 			<Text size="lg">{t('typing_title_behind')}</Text>
 		</Group>

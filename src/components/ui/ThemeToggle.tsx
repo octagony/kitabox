@@ -1,8 +1,11 @@
 import { ActionIcon, Tooltip, useMantineColorScheme } from "@mantine/core";
 import { Moon, Sun } from "lucide-react";
 import classes from '@/styles/components/ui/ThemeToggle.module.css';
+import { useHydrated } from "@tanstack/react-router";
 
 export function ThemeToggle() {
+	const isHydrated = useHydrated();
+
 	const { colorScheme, setColorScheme } = useMantineColorScheme();
 	const isDark = colorScheme === 'dark';
 
@@ -15,6 +18,10 @@ export function ThemeToggle() {
 			setColorScheme(newScheme);
 		});
 	};
+
+	if (!isHydrated) {
+		return <></>;
+	}
 
 	return (
 		<Tooltip label={isDark ? 'Switch to light theme' : 'Switch to dark theme'} withArrow>
