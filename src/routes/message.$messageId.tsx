@@ -11,6 +11,9 @@ import {
 import { useMessage } from '@/hooks/useMailRequest';
 import { CircleChevronLeft } from "lucide-react";
 import { MailLoader } from "#/components/MailLoader";
+import { useEffect, useState } from "react";
+import { cleanHTML } from "@/utils/helpers";
+import classes from "@/styles/messageId.module.css";
 
 export const Route = createFileRoute('/message/$messageId')({
   component: MessageDetailRoute,
@@ -19,8 +22,14 @@ export const Route = createFileRoute('/message/$messageId')({
 function MessageDetailRoute() {
   const { messageId } = Route.useParams();
   const navigate = Route.useNavigate();
+  const [html, setHtml] = useState<string | null>();
 
   const { data: message, isLoading, isError } = useMessage(messageId);
+
+  useEffect(() => {
+    const clearedHTML = cleanHTML(message);
+    setHtml(clearedHTML);
+  }, []);
 
   if (isLoading) {
     return (
@@ -78,14 +87,18 @@ function MessageDetailRoute() {
 
           <Divider />
 
-          {message.html.length > 0 ? (
+          {html ? (
             <div
-              dangerouslySetInnerHTML={{ __html: message.html[0] }}
+              dangerouslySetInnerHTML={{ __html: html }}
+              className={classes.emailContent}
               style={{
                 lineHeight: 1.6,
                 wordBreak: 'break-word',
                 maxWidth: '100%',
-                overflowX: 'auto'
+                overflowX: 'auto',
+                fontFamily: 'inherit',
+                fontSize: 'inherit',
+                color: 'inherit',
               }}
             />
           ) : (
