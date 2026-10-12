@@ -58,8 +58,6 @@ function RootDocument({ children }: { children: React.ReactNode; }) {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               style={{
                 minHeight: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
               }}
             >
               {children}

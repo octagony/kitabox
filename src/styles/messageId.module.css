@@ -1,23 +1,23 @@
-.email-content img {
+.emailContent img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-.email-content table {
+.emailContent table {
   max-width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
 }
 
-.email-content a {
-  color: var(--mantine-primary-color-filled);
+.emailContent a {
+  color: var(--mantine-primary-color-light-color);
   text-decoration: underline;
 }
 
-.email-content script,
-.email-content iframe,
-.email-content object,
-.email-content embed {
+.emailContent script,
+.emailContent iframe,
+.emailContent object,
+.emailContent embed {
   display: none !important;
 }

@@ -15,6 +15,37 @@ export const queryClient = new QueryClient({
   },
 })
 
+queryClient.getQueryCache().subscribe((event) => {
+  if (event.type === 'updated' || event.query.state.status === 'error') {
+    const query = event.query
+    if (query.state.error && typeof window !== 'undefined') {
+      import('@mantine/notifications').then(({ notifications }) => {
+        notifications.show({
+          title: 'Error',
+          message: query.state.error.message || 'Something went wrong',
+          color: 'red',
+          autoClose: 5000,
+        })
+      })
+    }
+  }
+})
+
+queryClient.getMutationCache().subscribe((event) => {
+  if (event.type === 'updated' && event.mutation.state.status === 'error') {
+    const error = event.mutation.state.error
+    if (error && typeof window !== 'undefined') {
+      import('@mantine/notifications').then(({ notifications }) => {
+        notifications.show({
+          title: 'Action failed',
+          message: error.message || 'Something went wrong',
+          color: 'red',
+          autoClose: 5000,
+        })
+      })
+    }
+  }
+})
 
 export const formatMailDate = (date:string) => {
   return new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
