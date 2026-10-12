@@ -12,6 +12,7 @@ import { Header } from "#/components/ui/Header";
 import { ThemeToggle } from "#/components/ui/ThemeToggle";
 import { Footer } from "#/components/ui/Footer";
 import { motion } from 'motion/react';
+import { DisplayNotification } from "@/components/ui/DisplayNotification";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -49,6 +50,7 @@ function RootDocument({ children }: { children: React.ReactNode; }) {
       <body>
         <QueryClientProvider client={queryClient}>
           <MantineProvider theme={theme}>
+            <DisplayNotification />
             <Header />
             <motion.div
               key={location.pathname}
@@ -58,6 +60,7 @@ function RootDocument({ children }: { children: React.ReactNode; }) {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               style={{
                 minHeight: '100vh',
+                overflow: 'hidden',
               }}
             >
               {children}

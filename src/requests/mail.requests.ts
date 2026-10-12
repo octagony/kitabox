@@ -1,4 +1,4 @@
-import type { IAccountResponse, IDomainsResponse, IMessageDetail, IMessagesResponse, ITokenResponse } from "@/interfaces/IResponses.interface";
+import type { IAccountResponse, IDomainsResponse, IMessageDeleteResponse, IMessageDetail, IMessagesResponse, ITokenResponse } from "@/interfaces/IResponses.interface";
 import { APP_MAIL_TM_BASE_URL } from "@/utils/constants";
 import { createServerFn } from '@tanstack/react-start'
 import axios from 'axios';
@@ -48,3 +48,12 @@ export const getMessageRequest = createServerFn()
     })
     return response.data
 });
+
+export const deleteMessageRequest = createServerFn()
+  .validator((data: { token: string; id: string }) => data)
+  .handler(async ({ data }) => {
+    const response = await api.delete<IMessageDeleteResponse>(`/messages/${data.id}`, {
+      headers: { Authorization: `Bearer ${data.token}` },
+    })
+    return { success: true, id: response.data.id}
+  })

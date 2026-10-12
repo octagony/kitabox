@@ -44,3 +44,7 @@ export interface IMessageDetail extends IMessageSummary {
   html: string[],
   hasAttachments: boolean,
 }
+
+export interface IMessageDeleteResponse {
+  id: string,
+}
