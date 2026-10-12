@@ -24,7 +24,7 @@ function MessageDetailRoute() {
 
   if (isLoading) {
     return (
-      <Container size="md" py="xl" ta="center">
+      <Container size="md" py="xl" ta="center" pt={96} pb={76}>
         <MailLoader />
       </Container>
     );
@@ -32,7 +32,7 @@ function MessageDetailRoute() {
 
   if (isError || !message) {
     return (
-      <Container size="md" py="xl">
+      <Container size="md" py="xl" pt={96} pb={76}>
         <Button
           variant="subtle"
           onClick={() => navigate({ to: '/' })}
