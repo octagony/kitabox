@@ -3,8 +3,18 @@ import { Moon, Sun } from "lucide-react";
 import classes from '@/styles/components/ui/ThemeToggle.module.css';
 
 export function ThemeToggle() {
-	const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+	const { colorScheme, setColorScheme } = useMantineColorScheme();
 	const isDark = colorScheme === 'dark';
+
+	const handleToggleTheme = () => {
+		const newScheme = isDark ? 'light' : 'dark';
+
+		document.startViewTransition(() => {
+			document.documentElement.setAttribute('data-mantine-color-scheme', newScheme);
+
+			setColorScheme(newScheme);
+		});
+	};
 
 	return (
 		<Tooltip label={isDark ? 'Switch to light theme' : 'Switch to dark theme'} withArrow>
@@ -12,7 +22,7 @@ export function ThemeToggle() {
 				className={classes.toggler}
 				variant="light"
 				size="xl"
-				onClick={toggleColorScheme}
+				onClick={handleToggleTheme}
 				aria-label="Toggle color scheme"
 			>
 				{isDark ? (

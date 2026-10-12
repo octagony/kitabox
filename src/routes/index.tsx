@@ -43,10 +43,6 @@ function MailListPage() {
 		);
 	}
 
-	const listVariants = {
-
-	};
-
 	return (
 		<Container size="xl" pt={96} pb={76}>
 			<Stack gap="xl">
