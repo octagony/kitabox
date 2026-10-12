@@ -6,6 +6,7 @@ import { renderHook, waitFor } from '@testing-library/react';
 import type { IMessageSummary } from "@/interfaces/IResponses.interface";
 import { getMessagesRequest } from '@/requests/mail.requests';
 import { accountActions, accountStore } from '@/store/accountStore';
+import type { IAccountState } from "#/interfaces/IStore.interface";
 
 vi.mock('@/requests/mail.requests', () => ({
   getMessagesRequest: vi.fn(),
@@ -45,12 +46,13 @@ describe('useMessages hook', () => {
   });
 
   it('Should  fetch message when token exist', async () => {
-    accountStore.setState(() => ({
+    const accountMock: IAccountState = {
       address: 'test@example.com',
       password: 'secret_password',
       token: 'secret_token',
-      createdAt: Date.now(),
-    }));
+    };
+
+    accountStore.setState(() => accountMock);
 
     const mockMessages: IMessageSummary[] = [
       {
@@ -76,7 +78,7 @@ describe('useMessages hook', () => {
       expect(result.current.isSuccess).toBe(true);
     });
 
-    expect(getMessagesRequest).toHaveBeenCalledWith({ data: 'secret_token' });
+    expect(getMessagesRequest).toHaveBeenCalledWith({ data: accountMock.token });
 
     expect(result.current.data).toEqual(mockMessages);
   });
