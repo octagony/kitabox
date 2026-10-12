@@ -13,9 +13,15 @@ export const accountStore = createStore<IAccountState>(initialState)
 
 export const accountActions = {
   setAccount: (account: IAccountState) => {
-    accountStore.setState(() => account)
+    const newAccount: IAccountState = {
+      ...account,
+      createdAt: Date.now(),
+    }
+
+    accountStore.setState(() => newAccount)
+    
     if (typeof window !== 'undefined') {
-      localStorage.setItem(APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY, JSON.stringify(account))
+      localStorage.setItem(APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY, JSON.stringify(newAccount))
     }
   },
   

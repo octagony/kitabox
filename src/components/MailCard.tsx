@@ -5,7 +5,6 @@ import { Link } from "@tanstack/react-router";
 import { Tag, Trash } from "lucide-react";
 import classes from '@/styles/components/MailCard.module.css';
 import { useDeleteMessage } from "#/hooks/useDeleteMessage";
-import { motion } from 'motion/react';
 
 export function MailCard({ message }: { message: IMessageSummary; }) {
 	const { mutate: deleteMessage, isPending } = useDeleteMessage();
