@@ -1,6 +1,6 @@
 import { createStore } from '@tanstack/react-store'
-import { APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY } from '#/utils/constants'
-import type { IAccountState } from "#/interfaces/IStore.interface";
+import { APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY } from '@/utils/constants'
+import type { IAccountState } from "@/interfaces/IStore.interface";
 
 const initialState: IAccountState = {
   address: '',

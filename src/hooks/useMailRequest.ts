@@ -1,5 +1,5 @@
-import type { IAccountState } from "#/interfaces/IStore.interface";
-import { createAccountRequest, getDomainsRequest, getMessageRequest, getMessagesRequest, getTokenRequest } from "#/requests/mail.requests";
+import type { IAccountState } from "@/interfaces/IStore.interface";
+import { createAccountRequest, getDomainsRequest, getMessageRequest, getMessagesRequest, getTokenRequest } from "@/requests/mail.requests";
 import { accountActions, accountStore } from "@/store/accountStore";
 import { APP_MAIL_TM_BASE_KEY, APP_QUERY_DOMAIN_KEY, APP_QUERY_MESSAGE_KEY, APP_QUERY_MESSAGES_KEY } from "@/utils/constants";
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';

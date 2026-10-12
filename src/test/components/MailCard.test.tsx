@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MantineProvider } from '@mantine/core';
-import { MailCard } from "#/components/MailCard";
+import { MailCard } from "@/components/MailCard";
 
 const mockMutate = vi.fn();
 

@@ -1,9 +1,9 @@
-import type { IMessageSummary } from "#/interfaces/IResponses.interface";
+import type { IMessageSummary } from "@/interfaces/IResponses.interface";
 import { ActionIcon, Group, Paper, Stack, Text, Tooltip } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
 import { Trash } from "lucide-react";
 import classes from '@/styles/components/MailCard.module.css';
-import { useDeleteMessage } from "#/hooks/useDeleteMessage";
+import { useDeleteMessage } from "@/hooks/useDeleteMessage";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 

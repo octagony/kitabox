@@ -1,5 +1,5 @@
-import type { IAccountState } from "#/interfaces/IStore.interface";
-import { accountActions, accountStore } from "#/store/accountStore";
+import type { IAccountState } from "@/interfaces/IStore.interface";
+import { accountActions, accountStore } from "@/store/accountStore";
 import { describe, it, expect, beforeEach } from "vitest";
 
 describe('Test accountStore', () => {

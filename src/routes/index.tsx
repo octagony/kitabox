@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useAutoCreateAccount } from '#/hooks/useAutoCreateAccount';
-import { useMessages } from '#/hooks/useMailRequest';
-import { accountStore } from '#/store/accountStore';
+import { useAutoCreateAccount } from '@/hooks/useAutoCreateAccount';
+import { useMessages } from '@/hooks/useMailRequest';
+import { accountStore } from '@/store/accountStore';
 import { Container, Group, Paper, Stack, Text, Title, Loader, Tooltip, ActionIcon } from '@mantine/core';
 import { createFileRoute } from '@tanstack/react-router';
-import { MailCard } from '#/components/MailCard';
-import { MailInfo } from '#/components/MailInfo';
-import { checkLocalStorageAccount } from "#/utils/helpers";
+import { MailCard } from '@/components/MailCard';
+import { MailInfo } from '@/components/MailInfo';
+import { checkLocalStorageAccount } from "@/utils/helpers";
 import { RefreshCcwDotIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";

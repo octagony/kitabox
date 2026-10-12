@@ -7,7 +7,7 @@ export function Header() {
 	return (
 		<header className={classes.header}>
 			<Container size="xl" className={classes.inner} >
-				<Image className={classes.headerLogo} src="./publlic/kitaboxLogo.svg" height={40} maw={200} />
+				<Image className={classes.headerLogo} src="./public/kitaboxLogo.svg" height={40} maw={200} />
 				<TypingTitle />
 				<LanguageSwitcher />
 			</Container>

@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { deleteMessageRequest } from '#/requests/mail.requests'
-import { accountStore } from '#/store/accountStore'
-import { APP_QUERY_MESSAGES_KEY } from '#/utils/constants'
+import { deleteMessageRequest } from '@/requests/mail.requests'
+import { accountStore } from '@/store/accountStore'
+import { APP_QUERY_MESSAGES_KEY } from '@/utils/constants'
 import { notifications } from '@mantine/notifications'
 import { useTranslation } from "react-i18next";
 

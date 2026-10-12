@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MantineProvider } from '@mantine/core';
-import { LanguageSwitcher } from "#/components/ui/LanguageSwitcher";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 const mockChangeLanguage = vi.fn();
 

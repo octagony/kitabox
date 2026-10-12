@@ -11,7 +11,7 @@ export function Footer() {
 				<Group gap={0} justify="flex-end" wrap="nowrap">
 					<Text size="md" >
 						<a className={classes.groupDevelopment} href="https://github.com/octagony" target="_blank">
-							<Image maw={22} mah={22} className={classes.logo} src="./publlic/githubLogo.svg" />
+							<Image maw={22} mah={22} className={classes.logo} src="./public/githubLogo.svg" />
 							{t('footer_developed_by')} Octagony
 						</a>
 					</Text>

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { MantineProvider } from '@mantine/core';
-import { MailInfo } from "#/components/MailInfo";
+import { MailInfo } from "@/components/MailInfo";
 
 const mockLanguage = {
 	mail_info_temporary_address_subtitle: 'Your temporary address:',

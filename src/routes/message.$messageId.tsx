@@ -10,7 +10,7 @@ import {
 } from '@mantine/core';
 import { useMessage } from '@/hooks/useMailRequest';
 import { CircleChevronLeft } from "lucide-react";
-import { MailLoader } from "#/components/MailLoader";
+import { MailLoader } from "@/components/MailLoader";
 import { useEffect, useState } from "react";
 import { cleanHTML } from "@/utils/helpers";
 import classes from "@/styles/messageId.module.css";

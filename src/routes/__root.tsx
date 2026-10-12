@@ -9,11 +9,12 @@ import {
 import { theme } from '@/utils/theme';
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/utils/helpers";
-import { Header } from "#/components/ui/Header";
-import { ThemeToggle } from "#/components/ui/ThemeToggle";
-import { Footer } from "#/components/ui/Footer";
+import { Header } from "@/components/ui/Header";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Footer } from "@/components/ui/Footer";
 import { motion } from 'motion/react';
 import { DisplayNotification } from "@/components/ui/DisplayNotification";
+import { seo } from "@/utils/seo";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -25,11 +26,38 @@ export const Route = createRootRoute({
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       },
-      {
+      ...seo({
         title: 'Kitabox',
-      },
+        description: 'Completely free temporary email without registration',
+      }),
     ],
     links: [
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png',
+      },
+      {
+        rel: 'manifest',
+        href: '/site.webmanifest',
+        color: '#fffff'
+      },
+      {
+        rel: 'icon',
+        href: '/favicon.ico'
+      },
       {
         rel: 'stylesheet',
         href: mantineCoreStyles,

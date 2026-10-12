@@ -6,7 +6,7 @@ import { renderHook, waitFor } from '@testing-library/react';
 import type { IMessageSummary } from "@/interfaces/IResponses.interface";
 import { getMessagesRequest } from '@/requests/mail.requests';
 import { accountActions, accountStore } from '@/store/accountStore';
-import type { IAccountState } from "#/interfaces/IStore.interface";
+import type { IAccountState } from "@/interfaces/IStore.interface";
 
 vi.mock('@/requests/mail.requests', () => ({
   getMessagesRequest: vi.fn(),

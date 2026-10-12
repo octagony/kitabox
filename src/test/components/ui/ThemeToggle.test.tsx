@@ -2,7 +2,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { MantineProvider } from '@mantine/core';
-import { ThemeToggle } from "#/components/ui/ThemeToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const mockSetColorScheme = vi.fn();
 const mockToggleColorScheme = vi.fn();

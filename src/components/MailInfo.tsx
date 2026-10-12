@@ -1,4 +1,4 @@
-import type { IMailInfoComponentProps } from "#/interfaces/IComponent.interface";
+import type { IMailInfoComponentProps } from "@/interfaces/IComponent.interface";
 import { Button, CopyButton, Group, Paper, Stack, Text, Tooltip } from "@mantine/core";
 import { RefreshCw } from "lucide-react";
 import classes from "@/styles/components/MailInfo.module.css";

@@ -1,7 +1,7 @@
 import { useEffect, useCallback, useRef } from 'react'
-import { accountStore } from '#/store/accountStore'
-import { useDomain, useCreateAccount } from '#/hooks/useMailRequest'
-import { APP_ACCOUNT_LIFETIME_MS } from "#/utils/constants";
+import { accountStore } from '@/store/accountStore'
+import { useDomain, useCreateAccount } from '@/hooks/useMailRequest'
+import { APP_ACCOUNT_LIFETIME_MS } from "@/utils/constants";
 
 export const useAutoCreateAccount = (isHydrated: boolean) => {
   const { data: domains, isLoading: isDomainsLoading } = useDomain()

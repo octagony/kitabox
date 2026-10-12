@@ -1,9 +1,9 @@
 import { QueryClient } from "@tanstack/react-query";
 import { APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY } from "./constants";
-import { accountActions } from "#/store/accountStore";
-import type { IMessageDetail } from "#/interfaces/IResponses.interface";
+import { accountActions } from "@/store/accountStore";
+import type { IMessageDetail } from "@/interfaces/IResponses.interface";
 import DOMPurify from 'isomorphic-dompurify';
-import i18n from "#/i18n";
+import i18n from "@/i18n";
 
 // EXPORT DEFAULT QUERY CLIENT
 export const queryClient = new QueryClient({
