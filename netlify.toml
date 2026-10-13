@@ -1,0 +1,6 @@
+[build]
+  command = "npm run lint && npm run test:run && npm run build"
+  publish = "dist"
+[dev]
+  command = "vite dev"
+  port = 3000
