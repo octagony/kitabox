@@ -35,5 +35,8 @@
   "message_page_empty_mail": "(Empty mail)",
 
   "click_to_copy_text": "Click to copy",
-  "copied_text": "Сopied"
+  "copied_text": "Сopied",
+
+  "not_found_title": "Oops",
+  "not_found_subtitle": "This page does not exist"
 }

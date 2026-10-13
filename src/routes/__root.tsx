@@ -17,6 +17,7 @@ import { DisplayNotification } from "@/components/ui/DisplayNotification";
 import { seo } from "@/utils/seo";
 import { useEffect } from "react";
 import { accountActions } from "@/store/accountStore";
+import { NotFound } from "@/components/ui/NotFound";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -67,6 +68,7 @@ export const Route = createRootRoute({
     ],
   }),
   shellComponent: RootDocument,
+  notFoundComponent: () => <NotFound />,
 });
 
 function RootDocument({ children }: { children: React.ReactNode; }) {

@@ -35,5 +35,8 @@
   "message_page_empty_mail": "(Пусто)",
 
   "click_to_copy_text": "Нажмите чтобы скопировать",
-  "copied_text": "Скопировано"
+  "copied_text": "Скопировано",
+
+  "not_found_title": "Ой",
+  "not_found_subtitle": "Этой страницы не существует"
 }

@@ -28,12 +28,10 @@ function MessageDetailRoute() {
   const { t, i18n } = useTranslation();
   const [formattedDate, setFormattedDate] = useState('');
 
-
   useEffect(() => {
     const clearedHTML = cleanHTML(message);
     setHtml(clearedHTML);
   }, []);
-
 
   useEffect(() => {
     if (message?.createdAt) {

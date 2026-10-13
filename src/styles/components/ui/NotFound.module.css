@@ -1,0 +1,22 @@
+html:is([data-mantine-color-scheme="dark"]) {
+	.notFoundImage {
+		filter: invert(1);
+	}
+}
+
+.notFound {
+	align-content: center;
+
+	.notFoundTitle {
+		font-size: 48px;
+	}
+	
+	.notFoundSubtitle {
+		font-size: 24px;
+	}
+
+	.buttonBack {
+		max-width: max-content;
+		margin: auto;
+	}
+}
