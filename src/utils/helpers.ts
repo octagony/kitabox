@@ -1,9 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 import { APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY } from "./constants";
 import { accountActions } from "@/store/accountStore";
-import type { IMessageDetail } from "@/interfaces/IResponses.interface";
-import DOMPurify from 'isomorphic-dompurify';
-import i18n from "@/i18n";
 
 // EXPORT DEFAULT QUERY CLIENT
 export const queryClient = new QueryClient({
@@ -69,10 +66,3 @@ const saved = localStorage.getItem(APP_TEMP_MAIL_LOCAL_STORAGE_ACCOUNT_KEY);
       }
   }
 }
-
-export const cleanHTML = (message:IMessageDetail | null | undefined) => {
-    if (message?.html.length) {
-      return message.html.length > 0 ? DOMPurify.sanitize(message.html[0]) : null
-    }
-    return null;
-} 

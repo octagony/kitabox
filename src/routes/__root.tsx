@@ -18,6 +18,7 @@ import { seo } from "@/utils/seo";
 import { useEffect } from "react";
 import { accountActions } from "@/store/accountStore";
 import { NotFound } from "@/components/ui/NotFound";
+import { useTranslation } from "react-i18next";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -73,10 +74,25 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode; }) {
   const location = useLocation();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     accountActions.hydrate();
   }, []);
+
+  useEffect(() => {
+    const updateLang = () => {
+      document.documentElement.lang = i18n.language;
+    };
+
+    updateLang();
+
+    i18n.on('languageChanged', updateLang);
+
+    return () => {
+      i18n.off('languageChanged', updateLang);
+    };
+  }, [i18n]);
 
   return (
     <html lang="en" {...mantineHtmlProps}>

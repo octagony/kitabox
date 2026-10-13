@@ -12,7 +12,7 @@ import { useMessage } from '@/hooks/useMailRequest';
 import { CircleChevronLeft } from "lucide-react";
 import { MailLoader } from "@/components/MailLoader";
 import { useEffect, useState } from "react";
-import { cleanHTML } from "@/utils/helpers";
+import DOMPurify from 'dompurify';
 import classes from "@/styles/messageId.module.css";
 import { useTranslation } from "react-i18next";
 
@@ -28,10 +28,20 @@ function MessageDetailRoute() {
   const { t, i18n } = useTranslation();
   const [formattedDate, setFormattedDate] = useState('');
 
+
   useEffect(() => {
-    const clearedHTML = cleanHTML(message);
-    setHtml(clearedHTML);
-  }, []);
+    if (message?.html) {
+      const htmlString = Array.isArray(message.html)
+        ? message.html.join('')
+        : String(message.html);
+
+      const cleanHtml = DOMPurify.sanitize(htmlString);
+      setHtml(cleanHtml);
+    }
+    if (!message?.html) {
+      setHtml('');
+    }
+  }, [message?.html]);
 
   useEffect(() => {
     if (message?.createdAt) {

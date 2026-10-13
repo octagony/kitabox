@@ -1,8 +1,6 @@
 [build]
   command = "npm run lint && npm run test:run && npm run build"
-  publish = ".output/public"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  publish = "dist"
+[dev]
+  command = "vite dev"
+  port = 3000
